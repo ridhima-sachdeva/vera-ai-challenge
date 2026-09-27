@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: vera-challenge-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /v1/healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: TEAM_NAME
+        value: Vera Challenge Team Ridz
+      - key: TEAM_MEMBERS
+        value: Ridhima
+      - key: CONTACT_EMAIL
+        sync: false
